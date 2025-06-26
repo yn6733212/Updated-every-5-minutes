@@ -22,6 +22,5 @@
   { "symbol": "DIS", "name": "דִיסְנִי", "type": "stock_us", "target_path": "ivr2:/1/2/2/11/" },
 
   { "symbol": "BTC-USD", "name": "הָבִּיטְקוֹיְן", "type": "crypto", "target_path": "ivr2:/1/3/1/" },
-  { "symbol": "ETH-USD", "name": "הָאִתֵרְיוּם", "type": "crypto", "target_path": "ivr2:/1/3/2/" },
-
+  { "symbol": "ETH-USD", "name": "הָאִתֵרְיוּם", "type": "crypto", "target_path": "ivr2:/1/3/2/" }
 ]
