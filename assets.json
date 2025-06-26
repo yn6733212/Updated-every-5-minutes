@@ -8,15 +8,6 @@
   
   { "symbol": "LUMI.TA", "name": "בָּנְק לֵאוּמִי", "type": "stock_il", "target_path": "ivr2:/1/2/1/1/" },
   { "symbol": "POLI.TA", "name": "בָּנְק הַפּוֹעֲלִים", "type": "stock_il", "target_path": "ivr2:/1/2/1/2/" },
-  { "symbol": "MZTF.TA", "name": "מִזְרָחִי טַפְחוֹת", "type": "stock_il", "target_path": "ivr2:/1/2/1/3/" },
-  { "symbol": "DSCT.TA", "name": "דִיסְקוֹנְט", "type": "stock_il", "target_path": "ivr2:/1/2/1/4/" },
-  { "symbol": "TEVA", "name": "טֵבָע", "type": "stock_il", "target_path": "ivr2:/1/2/1/6/" },
-
-  { "symbol": "ESLT.TA", "name": "אֶלְבִּיט מַעֲרָכוֹת", "type": "stock_il", "target_path": "ivr2:/1/2/1/10/" },
-  { "symbol": "OPK", "name": "אוֹפְּקוֹ הֶלְת'", "type": "stock_il", "target_path": "ivr2:/1/2/1/11/" },
-  { "symbol": "BEZQ.TA", "name": "בֶּזֶק", "type": "stock_il", "target_path": "ivr2:/1/2/1/12/" },
-  { "symbol": "CEL.TA", "name": "סֶלְקוֹם", "type": "stock_il", "target_path": "ivr2:/1/2/1/13/" },
-  { "symbol": "SAE.TA", "name": "שׁוּפֶרְסָל", "type": "stock_il", "target_path": "ivr2:/1/2/1/15/" },
 
   { "symbol": "AAPL", "name": "אָפֵּל", "type": "stock_us", "target_path": "ivr2:/1/2/2/1/" },
   { "symbol": "MSFT", "name": "מָיְיקְרוֹסוֹפְט", "type": "stock_us", "target_path": "ivr2:/1/2/2/2/" },
@@ -30,9 +21,6 @@
   { "symbol": "NFLX", "name": "נֵטְפְּלִיקְס", "type": "stock_us", "target_path": "ivr2:/1/2/2/10/" },
   { "symbol": "DIS", "name": "דִיסְנִי", "type": "stock_us", "target_path": "ivr2:/1/2/2/11/" },
 
-
-  
-  
   { "symbol": "BTC-USD", "name": "הָבִּיטְקוֹיְן", "type": "crypto", "target_path": "ivr2:/1/3/1/" },
   { "symbol": "ETH-USD", "name": "הָאִתֵרְיוּם", "type": "crypto", "target_path": "ivr2:/1/3/2/" },
 
