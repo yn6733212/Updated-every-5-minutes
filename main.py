@@ -63,7 +63,6 @@ def format_number_hebrew(number):
         number = float(number)
         if number >= 1000 and not number.is_integer():
             number = round(number)
-
         if number.is_integer():
             number = int(number)
             if number >= 1000:
@@ -120,6 +119,17 @@ def create_text(asset, data):
     )
     print(f"📜 טקסט עבור {name}: {full_text}")
     return full_text
+
+def is_same_text(symbol, new_text):
+    filename = f"last_text_{symbol.replace('^','')}.txt"
+    if os.path.exists(filename):
+        with open(filename, "r", encoding="utf-8") as f:
+            old_text = f.read()
+            if old_text.strip() == new_text.strip():
+                return True
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write(new_text)
+    return False
 
 async def text_to_speech(text, filename):
     communicate = Communicate(text, voice="he-IL-AvriNeural", rate="-10%")
@@ -197,6 +207,11 @@ async def main():
             continue
 
         text = create_text(asset, data)
+
+        if is_same_text(symbol, text):
+            print("⚠️ תוצאה זהה – מדלג")
+            continue
+
         await text_to_speech(text, "temp.mp3")
         convert_to_wav("temp.mp3", "temp.wav")
         upload_to_yemot("temp.wav", path)
@@ -211,6 +226,6 @@ if __name__ == "__main__":
             except Exception as e:
                 print(f"❌ שגיאה בריצה: {e}")
             print("⏳ ממתין 10 דקות לריצה הבאה...\n")
-            await asyncio.sleep(10 * 60)  # 10 דקות
+            await asyncio.sleep(10 * 60)
 
     asyncio.run(loop_forever())
