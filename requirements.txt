@@ -1,0 +1,4 @@
+yfinance
+edge-tts
+requests
+requests-toolbelt
