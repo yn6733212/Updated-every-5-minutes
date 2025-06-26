@@ -1,11 +1,14 @@
 import json
-import yfinance as yf
+import yfinance 
+as yf
 import asyncio
 import datetime
 import os
 import subprocess
-from edge_tts import Communicate
-from requests_toolbelt.multipart.encoder import MultipartEncoder
+from edge_tts 
+import Communicate
+from requests_toolbelt.multipart.encoder 
+import MultipartEncoder
 import requests
 import urllib.request
 import tarfile
