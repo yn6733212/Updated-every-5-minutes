@@ -36,26 +36,49 @@ def ensure_ffmpeg():
                     os.chmod(FFMPEG_PATH, 0o755)
                     break
 
-HEBREW_UNITS = ["", "אַחַת", "שְׁתָיִם", "שָׁלֹשׁ", "אַרְבַּע", "חָמֵשׁ", "שֵׁשׁ", "שֶׁבַע", "שְׁמוֹנֶה", "תֵשַׁע"]
+HEBREW_UNITS = ["", "אַחַת", "שְׁתָיִים", "שָׁלֹשׁ", "אַרְבַּע", "חָמֵשׁ", "שֵׁשׁ", "שֶׁבַע", "שְׁמוֹנֶה", "תֵשַׁע"]
 HEBREW_TENS = ["", "עֶשֶׂר", "עֶשְׂרִים", "שְׁלוֹשִׁים", "אַרְבָּעִים", "חֲמִשִׁים", "שִׁשִׁים", "שִׁבְעִים", "שְׁמוֹנִים", "תִשְׁעִים"]
 HEBREW_TEENS = ["עֶשֶׂר", "אֵחָד עֶשְׂרֵה", "שְׁתֵים עֶשְׂרֵה", "שְׁלֹשׁ עֶשְׂרֵה", "אַרְבַּע עֶשְׂרֵה", "חָמֵשׁ עֶשְׂרֵה", "שֵׁשׁ עֶשְׂרֵה", "שְׁבַע עֶשְׂרֵה", "שְׁמוֹנֶה עֶשְׂרֵה", "תְשַׁע עֶשְׂרֵה"]
-HEBREW_THOUSANDS = ["", "אֶלֶף", "אַלְפָיִם", "שְׁלוֹשְׁת אַלָפִים", "אַרְבַּעַת אַלָפִים", "חֲמֵשְׁת אַלָפִים", "שֵׁשְׁת אַלָפִים", "שְׁבָת אַלָפִים", "שְׁמוֹנַת אַלָפִים", "תְשָׁת אַלָפִים"]
 
 def number_to_hebrew(n):
     if n == 0:
         return "אֵפֵס"
-    if 10 < n < 20:
-        return HEBREW_TEENS[n - 10]
-    tens = n // 10
-    units = n % 10
+
     parts = []
-    if tens:
-        parts.append(HEBREW_TENS[tens])
-    if units:
-        if tens:
-            parts.append("ו" + HEBREW_UNITS[units])
+
+    # אלפים
+    if n >= 1000:
+        thousands = n // 1000
+        n = n % 1000
+        if thousands == 1:
+            parts.append("אֶלֶף")
+        elif thousands == 2:
+            parts.append("אַלְפַּיִים")
         else:
-            parts.append(HEBREW_UNITS[units])
+            parts.append(number_to_hebrew(thousands) + " אֲלָפִים")
+
+    # מאות
+    if n >= 100:
+        hundreds = n // 100
+        n = n % 100
+        if hundreds == 1:
+            parts.append("מֵאָה")
+        elif hundreds == 2:
+            parts.append("מָאתַיִים")
+        else:
+            parts.append(number_to_hebrew(hundreds) + " מֵאוֹת")
+
+    # עשרות ואחדות
+    if 10 < n < 20:
+        parts.append(HEBREW_TEENS[n - 10])
+    else:
+        tens = n // 10
+        units = n % 10
+        if tens:
+            parts.append(HEBREW_TENS[tens])
+        if units:
+            parts.append("ו" + HEBREW_UNITS[units] if tens else HEBREW_UNITS[units])
+
     return " ".join(parts)
 
 def format_number_hebrew(number):
@@ -63,15 +86,13 @@ def format_number_hebrew(number):
         number = float(number)
         if number >= 1000 and not number.is_integer():
             number = round(number)
+
         if number.is_integer():
             number = int(number)
             if number >= 1000:
                 thousands = number // 1000
                 rest = number % 1000
-                if 1 <= thousands < 10:
-                    thousands_text = HEBREW_THOUSANDS[thousands]
-                else:
-                    thousands_text = number_to_hebrew(thousands) + " אֶלֶף"
+                thousands_text = number_to_hebrew(thousands) + " אֶלֶף" if thousands > 2 else number_to_hebrew(number)
                 rest_text = number_to_hebrew(rest) if rest else ""
                 return f"{thousands_text} ו{rest_text}" if rest_text else thousands_text
             else:
