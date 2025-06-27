@@ -239,14 +239,5 @@ async def main():
         print(f"✅ הועלה לשלוחה {path}")
 
 if __name__ == "__main__":
-    async def loop_forever():
-        while True:
-            print("⏱️ התחלה חדשה של ריצה...")
-            try:
-                await main()
-            except Exception as e:
-                print(f"❌ שגיאה בריצה: {e}")
-            print("⏳ ממתין 5 דקות לריצה הבאה...\n")
-            await asyncio.sleep(5 * 60)
-
-    asyncio.run(loop_forever())
+    import asyncio
+    asyncio.run(main())
