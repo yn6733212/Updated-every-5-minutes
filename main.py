@@ -246,7 +246,7 @@ if __name__ == "__main__":
                 await main()
             except Exception as e:
                 print(f"❌ שגיאה בריצה: {e}")
-            print("⏳ ממתין 10 דקות לריצה הבאה...\n")
-            await asyncio.sleep(10 * 60)
+            print("⏳ ממתין 5 דקות לריצה הבאה...\n")
+            await asyncio.sleep(5 * 60)
 
     asyncio.run(loop_forever())
