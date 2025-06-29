@@ -2,8 +2,8 @@
   { "symbol": "^GSPC", "name": "הָאֵס אֵנְד פִּי חָמֵש מֵאוֹת", "type": "index", "target_path": "ivr2:/1/1/1/" },
   { "symbol": "^NDX", "name": "הָנָסְדָק", "type": "index", "target_path": "ivr2:/1/1/2/" },
   { "symbol": "^DJI", "name": "הָדָאוֹ ג'וֹנְס", "type": "index", "target_path": "ivr2:/1/1/3/" },
-  { "symbol": "TA35.TA", "name": "תֵל אָבִיב שְלוֹשִים וֵחָמֵש", "type": "index", "target_path": "ivr2:/1/1/6/" },
-  { "symbol": "^TA125.TA", "name": "תֵל אָבִיב מֵאָה עֵשְׂרִים וֵחָמֵש", "type": "index", "target_path": "ivr2:/1/1/7/" },
+  { "symbol": "TA35.TA", "name": "תֵל אָבִיב שְלוֹשִים וֵחָמֵש", "type": "index", "target_path": "ivr2:/1/1/5/" },
+  { "symbol": "^TA125.TA", "name": "תֵל אָבִיב מֵאָה עֵשְׂרִים וֵחָמֵש", "type": "index", "target_path": "ivr2:/1/1/4/" },
 
   
   { "symbol": "LUMI.TA", "name": "בָּנְק לֵאוּמִי", "type": "stock_il", "target_path": "ivr2:/1/2/1/1/" },
